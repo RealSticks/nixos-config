@@ -1,4 +1,5 @@
-{
+{ lib, ... }: {
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -8,6 +9,7 @@
       "$mainMod" = "SUPER";
       "$terminal" = "kitty";
       "$menu" = "wofi --show drun";
+      "$webBrowser" = "firefox";
 
       monitor = ",preferred,auto,auto";
 
@@ -15,8 +17,8 @@
         gaps_in = 5;
         gaps_out = 20;
         border_size = 2;
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+        "col.active_border" = lib.mkDefault "rgba(33ccffee) rgba(00ff99ee) 45deg";
+        "col.inactive_border" = lib.mkDefault "rgba(595959aa)";
         resize_on_border = true;
         allow_tearing = false;
         layout = "dwindle";
@@ -33,7 +35,7 @@
           enabled = true;
           range = 4;
           render_power = 3;
-          color = "rgba(1a1a1aee)";
+          color = lib.mkDefault "rgba(1a1a1aee)";
         };
 
         blur = {
@@ -107,7 +109,7 @@
               "$mainMod, R, exec, $menu"
               "$mainMod, P, pseudo, # dwindle"
               "$mainMod, J, togglesplit, # dwindle"
-              "$mainMod, W, exec, $browser"
+              "$mainMod, W, exec, $webBrowser"
               "$mainMod, left, movefocus, l"
               "$mainMod, right, movefocus, r"
               "$mainMod, up, movefocus, u"

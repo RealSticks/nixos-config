@@ -1,13 +1,16 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }: {
 
   imports = [
     ./hyprland.nix
   ];
-
+  
   home.username = "matts";
   home.homeDirectory = "/home/matts";
 
   home.stateVersion = "25.05"; # Please read the comment before changing.
+  
+  # catppuccin.flavor = "mocha";
+  # catppuccin.enable = true;
 
   programs.git = {
     enable = true;
@@ -49,10 +52,23 @@
     enableCompletion = true;
   };
 
+  programs.fastfetch = {
+    enable = true;
+    settings = {
+      logo = {
+        source = "nixos_small";
+        padding = {
+          right = 1;
+        };
+      };
+    };
+  };
+
   home.packages = [
     pkgs.hello
     pkgs.protonmail-desktop
     pkgs.proton-pass
+    pkgs.caligula
   ];
 
   home.file = {
