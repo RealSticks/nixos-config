@@ -23,26 +23,30 @@
     # };
   };
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-    plugins = with pkgs.vimPlugins; [
-      nvim-lspconfig
-      nvim-treesitter.withAllGrammars
-    ];
-    extraLuaConfig = ''
-      ${builtins.readFile ../../modules/neovim/options.lua}
-    '';
-  };
+  # programs.neovim = {
+  #   enable = true;
+  #   defaultEditor = true;
+  #   viAlias = true;
+  #   vimAlias = true;
+  #   vimdiffAlias = true;
+  #   plugins = with pkgs.vimPlugins; [
+  #     nvim-lspconfig
+  #     nvim-treesitter.withAllGrammars
+  #   ];
+  #   extraLuaConfig = ''
+  #     ${builtins.readFile ../../modules/neovim/options.lua}
+  #   '';
+  # };
 
   programs.kitty = {
     enable = true;
   };
 
   programs.firefox = {
+    enable = true;
+  };
+
+  programs.yazi = {
     enable = true;
   };
 

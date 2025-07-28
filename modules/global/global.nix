@@ -7,6 +7,8 @@
   environment.systemPackages = with pkgs; [
     git
     neovim
+    nixfmt-rfc-style
+    nixd
   ];
 
   # Select internationalisation properties.
@@ -25,6 +27,6 @@
   };
 
   # Set the default editor to neovim
-  environment.variables.EDITOR = "neovim";
+  environment.variables.EDITOR = "nvim";
 
 }

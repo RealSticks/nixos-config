@@ -7,7 +7,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-
+  
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -23,6 +23,10 @@
 
   
   programs.hyprland.enable = true;
+
+  services.tailscale = {
+    enable = true;
+  };
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
@@ -77,6 +81,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
+    brightnessctl
   ];
 
 
