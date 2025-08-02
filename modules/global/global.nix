@@ -6,7 +6,6 @@
 
   environment.systemPackages = with pkgs; [
     git
-    neovim
     nixfmt-rfc-style
     nixd
   ];

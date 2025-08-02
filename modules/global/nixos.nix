@@ -1,20 +1,17 @@
-{ pkgs, lib, inputs, ... }: {
-
+{
+  pkgs,
+  lib,
+  inputs,
+  config,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
-    
+  ];
+
+  imports = [
+   ../neovim/nvf-configuration.nix
   ];
   
-  programs.nvf = {
-    enable = true;
-    settings = {
-      vim.viAlias = false;
-      vim.vimAlias = true;
-      vim.lsp = {
-        enable = true;
-      };
-    };
-  };
-
   qt = {
     enable = lib.mkDefault true;
   };
